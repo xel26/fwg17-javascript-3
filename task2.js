@@ -14,11 +14,10 @@ const getMonth = (callback) => {                                                
 
 
 const showMonth = (error, month) => {                                                   // membuat fungsi showMonth yang menerima parameter error dan month
-    if(error === null){                                                                 // jika parameter error berisi nilai null maka nama-nama bulan dalam array akan di map dan di tampilkan 
-        console.log(month.map(eachMonth => {return eachMonth}))                         // di tampilkan dalam bentuk array
-        month.map(eachMonth => console.log(eachMonth))                                  // di tampilkan dalam bentuk string
-    }else{                                                                              // jika parameter error tidak berisi nilai null tapi berisi error, maka akan menampilkan pesan error berserta array kosong
+    if(error){                                                                          // jika parameter error berisi nilai null maka nama-nama bulan dalam array akan di map dan di tampilkan 
         console.log(error.message, month)
+    }else{                                                                              // jika parameter error tidak berisi nilai null tapi berisi error, maka akan menampilkan pesan error berserta array kosong
+        console.log(month.map(eachMonth => eachMonth))                                  // di tampilkan dalam bentuk array
     }
 }
 
