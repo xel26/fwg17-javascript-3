@@ -23,6 +23,7 @@ const cekHariKerja = (day) => {                                                 
 
 
 // A. then catch
+{
 const cek = (hari, callback) => {                                                           // membuat fungi cek yang menerima dua parameter
     callback(hari)                                                                          // memanggil fungsi callback dan mengirim parameter hari        
     .then(result => console.log(`hari ${result} adalah hari kerja`))                        // melakukan method chaining then untuk menangkap hasil resolve di promise berupa "string" nama hari lalu menampilkannya
@@ -31,14 +32,15 @@ const cek = (hari, callback) => {                                               
 
 cek("senin", cekHariKerja)                                                                  // memanggil fungsi cek dengan mengirim parameter nama hari dan callback cekHariKerja
 cek("sabtu", cekHariKerja)
-
+}
 
 
 
 
 
 // B. try catch
-const validasi = async(hari, callback) => {                                                 // membuat fungsi validasi dan menambahkan kata "async" untuk menandai bahwa program akan di jalankan secara asyncronous
+{
+const cek = async(hari, callback) => {                                                 // membuat fungsi validasi dan menambahkan kata "async" untuk menandai bahwa program akan di jalankan secara asyncronous
     try {                                                                                   // menggunakan method "try" untuk menghandle hasil resolve di promise
         const result = await callback(hari)                                                 // inisialisasi variable result dengan pemanggilan fungsi callback dengan menambahkan kata  "await" yang berguna untuk menunggu/menahan eksekusi sampai proses asynchronous selesai dan hasil di dapatkan
         console.log(`hari ${result} adalah hari kerja`)                                     // mengeksekusi hasil resolve
@@ -47,5 +49,6 @@ const validasi = async(hari, callback) => {                                     
     }
 }
 
-validasi("selasa", cekHariKerja)                                                            // memanggil fungsi validasi dan mengirim parameter hari dan callback cekHariKerja
-validasi("minggu", cekHariKerja)
+cek("selasa", cekHariKerja)                                                            // memanggil fungsi validasi dan mengirim parameter hari dan callback cekHariKerja
+cek("minggu", cekHariKerja)
+}
